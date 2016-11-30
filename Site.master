@@ -1,0 +1,85 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+ <title>Untitled Page</title>
+ <asp:ContentPlaceHolder id="head" runat="server">
+ </asp:ContentPlaceHolder>
+ <style type="text/css">
+     a {
+         text-decoration: none;
+         color: brown;
+     }
+     html {
+         font-size: 11px;
+         font-family: helvetica;
+     }
+  #topContent {
+    text-align: right;
+    background-color: #600;
+    color: White;
+    font-size: x-large;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    height: 50px;
+ }	
+ </style>
+</head>
+<body>
+ <form id="form1" runat="server">
+ <div id="topContent">
+     <%if(Session["name"] == null) { %>
+ <a href="SignUp.aspx" style="font-size:9px;color :white ">Sign Up | </a>
+ <a href="SignIn.aspx" style="font-size:9px;color :white ">Sign In</a><br />
+     <%} else { %>
+     <span style="font-size:9px;color :white ">Welcome, <%=Session["name"] %>!</span><br />
+ <a href="SignOut.aspx" style="font-size:9px;color :white ">Sign Out</a><br />
+      <%} %>
+ <a href="BoardListing.aspx" style="color :white ">Employee Board Listing</a>
+ </div>
+
+<table cellpadding="8">
+ <tr>
+ <td valign="top" style="background-image:url(images/aforumback.jpg)">
+ <div id="leftContent">
+ <h3 style="background-color:white">Lessons</h3>    
+ <ul>
+	<li style="background-color:white"><a target="_blank" href="http://www.bls.gov/bls/announcement.htm">Announcements</a></li>
+    <li style="background-color:white"><a target="_blank" href="http://www.bls.gov/bls/bls-speakers/bls-speakers.htm">BLS Speakers Available</a></li> 
+	<li style="background-color:white"><a target="_blank" href="http://blogs.bls.gov/blog/">Commissioner's Corner</a></li>
+	<li style="background-color:white"><a target="_blank" href="http://www.bls.gov/bls/research.htm">Research</a></li>
+	<li style="background-color:white"><a target="_blank" href="http://www.bls.gov/spotlight/">Spotlight on Statistics</a></li>
+	<li style="background-color:white"><a target="_blank" href="http://www.bls.gov/k12/">Students' Pages</a></li>
+    <li style="background-color:white"><a target="_blank" href="http://www.bls.gov/bls/erratabydate.htm">Errata</a></li>
+    <li style="background-color:white"><a target="_blank" href="http://www.bls.gov/bls/other.htm">Other Statistical Sites</a></li>
+ </ul>
+ <h3 style="background-color:white">Online Resources</h3>
+ <ul>
+ <li style="background-color:white"><a target="_blank" href="http://www.joovideo.com">www.joovideo.com</a></li>
+ <li style="background-color:white"><a target="_blank" href="http://www.ondemandkorea.com">www.ondemandkorea.com</a></li>
+ <li style="background-color:white"><a target="_blank" href="http://www.dramafever.com">www.dramafever.com</a></li>
+ <li style="background-color:white"><a target="_blank" href="http://www.viki.com">www.viki.com</a></li>
+ <li style="background-color:white"><a target="_blank" href="http://www.naver.co.kr">www.naver.com</a></li>
+ <li style="background-color:white"><a target="_blank" href="http://www.google.co.kr">www.google.co.kr</a></li>
+ <li style="background-color:white"><a target="_blank" href="http://www.donga.com">www.donga.com</a></li>
+ <li style="background-color:white"><a target="_blank" href="http://www.sports.naver">www.sports.naver</a></li>
+ <li style="background-color:white"><a target="_blank" href="http://www.shopping.naver">www.shopping.naver</a></li>
+ </ul>
+ </div>
+ </td>
+ <td valign="top"> 
+ <div id="mainContent">
+ <asp:ContentPlaceHolder id="MainContent" runat="server">
+ </asp:ContentPlaceHolder>
+ </div>
+ </td>
+ </tr>
+ </table>
+
+ <div id="footerContent" style="position:relative;top:90%;background-color: #666;color:white">
+ <img src="Images/PoweredByASPNET.gif" alt="Powered by ASP.NET!" />
+ </div>
+ </form>
+</body>
+</html>
